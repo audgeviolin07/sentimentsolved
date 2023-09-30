@@ -25,5 +25,5 @@ export default function Home() {
         <Link href="/cam">What</Link>
       </div>
     </main>
-  );
+  )
 }
