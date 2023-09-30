@@ -19,12 +19,11 @@ export default function Home() {
           <Image 
           src={"/blob2.svg"}
           width={550}
-          height={250}
-          />
+          height={250}/>
         </div>
-      <Cam />
-      <Link href="/cam">What</Link>
+        <Cam />
+        <Link href="/cam">What</Link>
       </div>
     </main>
-  )
+  );
 }
