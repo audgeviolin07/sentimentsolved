@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@livekit/components-react": "^1.2.2",
+    "@livekit/components-styles": "^1.0.6",
+    "livekit-client": "^1.13.4",
+    "livekit-server-sdk": "^1.2.6",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest",
     "react-router-dom": "^6.16.0"
   },
   "devDependencies": {
