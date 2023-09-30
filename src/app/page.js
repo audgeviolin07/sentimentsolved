@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -42,7 +43,6 @@ export default function Home() {
           width={550}
           height={250}/>
         </div>
-        <Cam />
         <Link href="/cam">What</Link>
       </div>
 
