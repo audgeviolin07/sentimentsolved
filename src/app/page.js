@@ -1,6 +1,8 @@
 
 import Image from 'next/image'
-import Cam from './cam'
+import Cam from './cam/page'
+import './globals.css'
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -20,6 +22,8 @@ export default function Home() {
           height={250}
           />
         </div>
+      <Cam />
+      <Link href="/cam">What</Link>
       </div>
     </main>
   )
