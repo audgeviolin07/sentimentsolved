@@ -1,4 +1,6 @@
+
 import Image from 'next/image'
+import Cam from './cam'
 
 export default function Home() {
   return (
