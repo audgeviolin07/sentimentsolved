@@ -13,6 +13,18 @@ pnpm dev
 # or
 bun dev
 ```
+#hi this is audrey talking about the server
+-> python3 -m venv env
+activate the virtual environment "env"
+-> source env/bin/activate  
+->pip install opencv-python tensorflow keras
+-> cd server
+->python3 test.py
+-> deactivate when done
+
+
+
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

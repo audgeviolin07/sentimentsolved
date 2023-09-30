@@ -8,7 +8,7 @@ export function TypographyH1({ children, className }) {
 
 export function TypographyH2({ children, className }) {
     return (
-      <h2 className={`scroll-m-20 border-b pb-2 text-3xl font-semibold trac transition-colors first:mt-0 ${className}`}>
+      <h2 className={`scroll-m-20 text-3xl font-semibold tracking-tight transition-colors ${className}`}>
         { children }
       </h2>
     )
@@ -33,7 +33,7 @@ export function TypographyH2({ children, className }) {
 
   export function TypographyP({ children, className }) {
     return (
-      <p className={`leading-7 [&:not(:first-child)]:mt-6 ${className}`}>
+      <p className={`leading-7 ${className}`}>
         { children }
       </p>
     )
