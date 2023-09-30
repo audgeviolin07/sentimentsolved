@@ -8,6 +8,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
      <Cam />
+     what<Link href="/app/cam">yote</Link>
     </main>
   )
 }

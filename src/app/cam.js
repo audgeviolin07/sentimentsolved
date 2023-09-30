@@ -3,9 +3,9 @@ import Link from 'next/link';
 export default function Cam() {
   return (
     <>
-      <h1>First Post</h1>
+      <h1>yeet</h1>
       <h2>
-        <Link href="/">Back to home</Link>
+        <Link href="/">yote</Link>
       </h2>
     </>
   );
