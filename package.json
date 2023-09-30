@@ -27,6 +27,6 @@
   "devDependencies": {
     "autoprefixer": "latest",
     "postcss": "latest",
-    "tailwindcss": "latest"
+    "tailwindcss": "^3.3.3"
   }
 }
