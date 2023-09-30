@@ -11,13 +11,15 @@ export default function Home() {
         <div className='absolute left-[250px] top-[-325px]'>
           <Image 
           src={"/blob1.svg"}
+          alt={'test'}
           width={550}
           height={250}
           />
         </div>
         <div className='absolute left-[950px] top-[250px]'>
           <Image 
-          src={"/blob2.svg"}
+          src={"/blob1.svg"}
+          alt={'test'}
           width={550}
           height={250}/>
         </div>
