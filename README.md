@@ -22,7 +22,8 @@ activate the virtual environment "env"
 ->python3 test.py
 -> deactivate when done
 
-
+env for server
+->pip install flask flask_socketio flask_cors keras
 
 
 
