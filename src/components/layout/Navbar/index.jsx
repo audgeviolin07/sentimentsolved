@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 
 const MainNavbarVariant = () => {
     return (
-        <div className={'flex justify-around items-center fixed w-full'}>
+        <div className={'flex justify-around items-center fixed w-full bg-pink-300)'}>
             <div className={'p-4 cursor-pointer'}>
                 <Link
                 href={'/'}
@@ -17,7 +17,7 @@ const MainNavbarVariant = () => {
                 
             </div>
 
-            <div className={'h-full'}>
+            <div className={'h-full text-pastel-blue'}>
                 <ul className={'flex h-full  gap-8'}>
                     <li className={''}>
                        <Link href="/login">Login</Link>
