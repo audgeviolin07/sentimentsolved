@@ -25,7 +25,7 @@ export default function LoginPage() {
                     </div>
                     
                     <Button className={'w-full text-md'}>
-                        Log In
+                        Register
                     </Button>
                     <div className={'flex flex-row w-full gap-4 items-center'}>
                         <div className={'w-full flex-1 h-px bg-gray-200'}/>

@@ -12,7 +12,7 @@ export default withAuth(
           req.nextUrl.pathname.startsWith('/login') &&
           token === null
         ) {
-          return false
+          return true
         }
         return true
       }

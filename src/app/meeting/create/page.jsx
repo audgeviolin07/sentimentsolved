@@ -19,7 +19,7 @@ export default function CreateMeetingPage() {
                     </TypographyP>
                     
                     <Button className={'w-full text-md'}>
-                        Create
+                        <Link href={'/meeting/generate'}>Create</Link>
                     </Button>
 
                     <Button variant={'link'} href={'/bruh'}>
