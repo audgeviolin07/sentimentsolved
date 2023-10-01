@@ -2,9 +2,10 @@ export default function Footer() {
     return (
         <div>
             <footer
-            class="bg-pink-200 text-center text-pink-600 dark:bg-pink-600 dark:text-pink-200 lg:text-left">
+            class="bg-pink-300 text-center text-pastel-blue lg:text-left">
             <div class="mx-6 py-10 text-center md:text-left">
-                <div class="grid-1 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                <div class="grid-1 grid g
+                ap-8 md:grid-cols-2 lg:grid-cols-4">
                 <div class="">
                     <h6
                     class="mb-4 flex items-center justify-center font-semibold uppercase md:justify-start">
@@ -29,17 +30,17 @@ export default function Footer() {
                     Links
                     </h6>
                     <p class="mb-4">
-                    <a href="https://localhost:3000" class="text-pink-900 dark:text-pink-200"
+                    <a href="https://localhost:3000" class="text-pastel-blue"
                         >Home</a
                     >
                     </p>
                     <p class="mb-4">
-                    <a href="https://localhost:3000/meeting/create" class="text-pink-900 dark:text-pink-200"
+                    <a href="https://localhost:3000/meeting/create" class="text-pastel-blue"
                         >Meetings</a
                     >
                     </p>
                     <p class="mb-4">
-                    <a href="https://localhost:3000/login/" class="text-pink-900 dark:text-pink-200"
+                    <a href="https://localhost:3000/login/" class="text-pastel-blue"
                         >Login</a
                     >
                     </p>
@@ -104,10 +105,10 @@ export default function Footer() {
                 </div>
                 </div>
             </div>
-            <div class="bg-pink-300 p-6 text-center dark:bg-pink-900">
+            <div class="bg-text-pastel-bluep-6 text-center text-black">
                 <span>© 2023 Copyright </span>
                 <a
-                class="font-semibold text-pink-600 dark:text-pink-1000"
+                class="font-semibold text-pink-300"
                 href="https://localhost:3000"
                 > sentimentSolved </a
                 >
