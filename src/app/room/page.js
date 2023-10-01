@@ -12,10 +12,15 @@ import { RoomAudioRenderer, ControlBar } from "@livekit/components-react";
 import { useEffect, useState } from 'react';
 import { Track } from 'livekit-client';
 
+import { useSearchParams } from 'next/navigation';
+
 export default function Page() {
   // TODO: get user input for room and name
-  const room = "quickstart-room";
-  const name = "quickstart-user";
+  const searchParams = useSearchParams();
+
+
+  const room = searchParams.get('room') || "quickstart-room";
+  const name = searchParams.get('name') || "quickstart-user";
   const [token, setToken] = useState("");
 
   useEffect(() => {
