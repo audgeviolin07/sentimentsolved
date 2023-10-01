@@ -58,6 +58,8 @@ const Navigations = {
     '/': <MainNavbarVariant/>,
     '/login': <LoginNavbarVariant/>,
     '/register': <LoginNavbarVariant/>,
+    '/meeting/create': <LoginNavbarVariant/>,
+    '/meeting/join': <LoginNavbarVariant/>,
 }
 
 export default function Navbar () {
