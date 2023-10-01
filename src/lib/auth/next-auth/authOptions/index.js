@@ -13,6 +13,8 @@ const authOptions = {
     },
 
     pages: {
+        signIn: '/login',
+        signUp: '/signup',
         //signOut: '/?logout=1',
         //error: '/?login=1&auth_error=1',
     },
@@ -195,9 +197,9 @@ const authOptions = {
                         return true;
                     }
 
-                    return '/?login=1&auth_error=oauth';
+                    return '/';
                 } catch (error) {
-                    return '/?login=1&auth_error=oauth';
+                    return '/';
                 }
             }
 

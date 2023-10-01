@@ -16,8 +16,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={open_sans.className}>
-        <Navbar />
-        {children}
+          <Navbar />
+          {children}
+        
       </body>
     </html>
   )

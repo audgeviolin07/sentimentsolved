@@ -14,7 +14,7 @@ export async function refreshToken(token) {
     }
 
     try {
-        const { data, status } = await api.post('/accounts/token/refresh/', {
+        const { data, status } = await api.post('/users/token/refresh/', {
             refresh,
         });
 
@@ -58,7 +58,7 @@ export async function callUserWithOTP(phone, country_code) {
     const phoneWithCountryCode = country_code + phone;
 
     try {
-        const { data, status } = await api.post('/accounts/otp/call/', {
+        const { data, status } = await api.post('/users/otp/call/', {
             phone: phoneWithCountryCode,
            
         });
@@ -77,7 +77,7 @@ export async function verifyPhoneOTP({ phone, country_code, otp }) {
     const phoneWithCountryCode = country_code + phone;
 
     try {
-        const { data } = await api.post('/accounts/otp/verify/', {
+        const { data } = await api.post('/users/otp/verify/', {
             phone: phoneWithCountryCode,
             token: otp,
         });
@@ -94,7 +94,7 @@ export async function userExistsWithPhone(phone, countryCode) {
     const phoneWithCountryCode = countryCode + phone;
 
     try {
-        const { data } = await api.post('/accounts/exists/phone/', {
+        const { data } = await api.post('/users/exists/phone/', {
             phone: phoneWithCountryCode,
         });
 
@@ -108,7 +108,7 @@ export async function userExistsWithPhone(phone, countryCode) {
 
 export async function userExistsWithEmail(email) {
     try {
-        const { data } = await api.get('/accounts/exists/email/' + email);
+        const { data } = await api.get('/users/exists/email/' + email);
 
         const response = data;
         return response;
@@ -130,7 +130,7 @@ export async function registerUserWithPhone({
     const phoneWithCountryCode = countryCode + phone;
 
     try {
-        const { data } = await api.post('/accounts/register/phone/', {
+        const { data } = await api.post('/users/register/phone/', {
             phone: phoneWithCountryCode,
             token: otp,
             first_name: firstName,
@@ -156,7 +156,7 @@ export async function registerUserWithEmail({
     password,
 }) {
     try {
-        const { data } = await api.post('/accounts/register/email/', {
+        const { data } = await api.post('/users/register/email/', {
             first_name: firstName,
             last_name: lastName,
             email,
