@@ -7,7 +7,7 @@ import { TypographyH1, TypographyH2, TypographyH3, TypographyH4 } from '@/compon
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-white">
-      <div className='border-[1px] h-[500px] w-full min-w-full relative top-[175px] border-dash overflow-hidden'>
+      <div className='border-[1px] h-[500px] w-full min-w-full relative top-[150px] border-dash overflow-hidden'>
         <div className='bg-[#EAE4E9] absolute h-[750px] w-[750px] left-[250px] top-[-300px] rounded-full blur-lg opacity-40'></div>
         <div className='bg-[#FFF1E6] absolute h-[750px] w-[750px] left-[450px] top-[350px] rounded-full blur-lg opacity-20'></div>
         <div className='bg-[#FDE2E4] absolute h-[750px] w-[750px] left-[1000px] top-[200px] rounded-full blur-lg opacity-20'></div>
