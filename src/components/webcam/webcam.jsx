@@ -1,13 +1,14 @@
+'use client';
+
 import { useEffect, useState, useRef, useCallback } from "react";
 import Webcam from "react-webcam";
-import axios from "axios";
 import { io } from "socket.io-client";
 
 
 const socket = io('http://localhost:8000')
 
-const model = await handTrack.load();
-const WebcamComponent = () => {
+//const model = handTrack.load().;
+export const WebcamComponent = () => {
   const videoConstraints = {
     width: 1920,
     height: 1080,
@@ -57,10 +58,10 @@ const WebcamComponent = () => {
     }, 1000 / 10);
     socket.on("response", (data) => {
       if (data.result === currentGoal) {
-        setScore(score + 1);
-        setCurrentGoal(letters[Math.floor(Math.random() * letters.length)]);
+        //setScore(score + 1);
+        //setCurrentGoal(letters[Math.floor(Math.random() * letters.length)]);
       } else {
-        setResponseObject(data);
+        //setResponseObject(data);
       }
     });
     return () => {
@@ -69,37 +70,20 @@ const WebcamComponent = () => {
     };
   }, [sendImage]);
 
-  const [currentGoal, setCurrentGoal] = useState(
-    letters[Math.floor(Math.random() * letters.length)]
-  );
-  const [gameStart, setGameStart] = useState(true);
-  const [timer, setTimer] = useState(30);
-  const [score, setScore] = useState(0);
-  const [responseObject, setResponseObject] = useState({
-    currentBox: null,
-    predicted: null,
-    accuracy: null,
-  });
 
-  useEffect(() => {
-    timer > 0 &&
-      setTimeout(() => setTimer(timer - 1), 1000) &&
-      setTimeout(() => setGameStart(false), 31000);
-  }, [timer]);
 
   return (
     <div className="font-lexend-deca font-light">
-      {timer != 0 ? (
+      {1 != 0 ? (
         <div className="flex flex-col lg:flex-row items-center justify-between lg:gap-[100px]">
           <div className="flex flex-col items-center w-full">
-            <div className="text-[72px] font-bold">{currentGoal}</div>
+            <div className="text-[72px] font-bold">{2}</div>
             <div className="flex justify-between px-[2px] w-full">
-              <div>Timer: {timer}</div>
-              <div>Score: {score}</div>
+              <div>Score: {2}</div>
             </div>
             <div className="flex justify-between px-[2px] w-full">
-              <div>Predicted Box: {responseObject.result}</div>
-              <div>Accuracy: {responseObject.confidence}</div>
+              <div>Predicted Box: {1}</div>
+              <div>Accuracy: {1}</div>
             </div>
           </div>
 
@@ -123,12 +107,10 @@ const WebcamComponent = () => {
         </div>
       ) : (
         <div className="flex flex-col justify-center items-center text-center">
-          <div className="text-[48px] font-semibold">Score: {score}</div>
+          <div className="text-[48px] font-semibold">Score: {2}</div>
           <button
             onClick={() => {
               setGameStart(true);
-              setTimer(30);
-              setScore(0);
             }}
             className="self-center sm:self-start bg-[#fcd9fc] hover:bg-[#db8fdd] border border-black rounded-lg px-8 py-4 mt-8"
           >
@@ -140,4 +122,3 @@ const WebcamComponent = () => {
   );
 };
 
-export default WebcamComponent;
