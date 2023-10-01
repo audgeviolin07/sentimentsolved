@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter, Open_Sans } from 'next/font/google'
+import { Navbar } from '@/components/layout/Navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 const open_sans = Open_Sans({
@@ -14,7 +15,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={open_sans.className}>{children}</body>
+      <body className={open_sans.className}>
+        {children}
+      </body>
     </html>
   )
 }
