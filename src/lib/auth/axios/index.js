@@ -3,7 +3,7 @@ import { getSession } from 'next-auth/react';
 import { getServerSession } from "next-auth";
 import authOptions from '../next-auth/authOptions';
 
-const api = axios.create({
+export const api = axios.create({
     baseURL: process.env.BACKEND_API_URL,
 });
 
@@ -21,7 +21,7 @@ const localFetcherGet = async (url) => {
     return axios.get(url).then(res => res.data);
 };
 
-export { api, clientApi, localFetcherGet };
+export { clientApi, localFetcherGet };
 
 export const AuthenticatedRequest = async (url, method, data) => {
     const session = await getServerSession(authOptions);

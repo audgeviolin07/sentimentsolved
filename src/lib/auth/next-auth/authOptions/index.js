@@ -13,9 +13,8 @@ const authOptions = {
     },
 
     pages: {
-        signIn: '/?login=1',
-        signOut: '/?logout=1',
-        error: '/?login=1&auth_error=1',
+        //signOut: '/?logout=1',
+        //error: '/?login=1&auth_error=1',
     },
     
     providers: [
@@ -51,7 +50,7 @@ const authOptions = {
             async authorize(credentials, req) {
                 const { email, password } = credentials;
                 try {
-                    const { data, status } = await api.post('/accounts/verify/email/', {
+                    const { data, status } = await api.post('/users/verify/email/', {
                         email,
                         password,
                     });
@@ -99,7 +98,7 @@ const authOptions = {
                 const phoneWithCountryCode = country_code + phone;
 
                 try {
-                    const { data, status } = await api.post('/accounts/verify/phone/', {
+                    const { data, status } = await api.post('/users/verify/phone/', {
                         phone: phoneWithCountryCode,
                         token,
                     });
@@ -137,8 +136,8 @@ const authOptions = {
             const tokenAccess = token.access;
             const tokenRefresh = token.refresh;
 
-            const decodedAccess = jwtDecode<JWT>(tokenAccess);
-            const decodedRefresh = jwtDecode<JWT>(tokenRefresh);
+            const decodedAccess = jwtDecode(tokenAccess);
+            const decodedRefresh = jwtDecode(tokenRefresh);
 
             if (decodedAccess.exp * 1000 > Date.now()) {
                 return Promise.resolve(token);
@@ -181,7 +180,7 @@ const authOptions = {
             if (account) {
                 const { access_token, id_token, provider } = account;
                 try {
-                    const response = await api.post('/accounts/verify/oauth/google/', {
+                    const response = await api.post('/users/verify/oauth/google/', {
                         access_token: id_token,
                     });
 
