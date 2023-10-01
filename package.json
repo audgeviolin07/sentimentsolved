@@ -19,8 +19,10 @@
     "livekit-server-sdk": "^1.2.6",
     "lucide-react": "^0.279.0",
     "next": "latest",
-    "react": "latest",
+    "react": "^18.2.0",
     "react-router-dom": "^6.16.0",
+    "react-webcam": "^7.1.1",
+    "socket.io-client": "^4.7.2",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7"
   },
