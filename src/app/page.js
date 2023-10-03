@@ -1,24 +1,60 @@
 import Image from 'next/image'
-import Cam from './cam/page'
 import './globals.css'
-import Link from 'next/link';
-import { TypographyH1, TypographyH2, TypographyH3, TypographyH4 } from '@/components/typography';
+import { TypographyH2, TypographyH3, TypographyH1, TypographyP } from '@/components/typography';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between bg-pink)">
-      <div className='h-[500px] w-full min-w-full relative top-[150px] border-dash overflow-hidden'>
-        <div className='bg-[#EAE4E9] absolute h-[750px] w-[750px] left-[250px] top-[-300px] rounded-full blur-lg opacity-40'></div>
-        <div className='bg-[#FFF1E6] absolute h-[750px] w-[750px] left-[450px] top-[350px] rounded-full blur-lg opacity-20'></div>
-        <div className='bg-[#FDE2E4] absolute h-[750px] w-[750px] left-[1000px] top-[200px] rounded-full blur-lg opacity-20'></div>
-        <div className='bg-[#E2ECE9] absolute h-[750px] w-[750px] left-[500px] top-[50px] rounded-full blur-lg opacity-20'></div>
-        <div className='bg-[#FAD2E1] absolute h-[750px] w-[750px] left-[0px] top-[150px] rounded-full blur-lg opacity-20'></div>
-        <div className='bg-[#CDDAFD] absolute h-[750px] w-[750px] left-[1450px] top-[-150px] rounded-full blur-lg opacity-20'></div>
-        <Cam />
-        <Link href="/cam">What</Link>
-        <div className='flex absolute flex-col items-center w-full justify-center top-[150px] gap-16 '>
-          <TypographyH2>Expression AI</TypographyH2>
-          <TypographyH3>An AI made to help people with ASD understand emotions</TypographyH3>
+    <main className="flex min-h-screen flex-col items-center justify-between ">
+      {<Image
+      src={'/blurry.svg'}
+      alt={'Background'}
+
+      width={1000}
+      height={1000}
+      className={'w-full pointer-events-none h-screen absolute top-0 left-0 object-cover select-none'}
+  />}
+      <div className='h-screen flex items-center justify-center w-full relative'>
+       
+        <div className='flex flex-col gap-4 max-w-2xl'>
+          <div className={'flex flex-col gap-4'}>
+            <TypographyH3 className={'bg-medium-purple-200 w-fit p-2 px-3 rounded-md text-xl text-medium-purple-900'}>sentimentSolved</TypographyH3>
+            <TypographyH1>Envision a world of emotion</TypographyH1>
+          </div>
+
+          <TypographyP className={'text-lg'}>
+            A platform to assist individuals with social-emotional agnosia in interpreting the world around them.
+            We use machine learning to analyze the sentiment of real-time video input, and provide
+            a visual representation of the emotional state of the user.
+          </TypographyP>
+
+
+          <div className={'flex items-center gap-4'}>
+            <Button>
+              <TypographyP>Get Started</TypographyP>
+            </Button>
+            <Button className={'flex items-center gap-2'}>
+              <Image
+                src={'/github.svg'}
+                alt={'GitHub'}
+                width={24}
+                height={24}
+                className={''}
+              />
+              Source
+
+            </Button>
+          </div>
+          <hr className={'border-medium-purple-200'} />
+          <div className={'flex flex-col gap-2'}>
+            <TypographyH2 className={''}>How it works</TypographyH2>
+            <TypographyP>
+              The user's face is captured via webcam and analyzed using a machine learning model.
+              The model outputs a sentiment score for each of the 7 basic emotions (anger, disgust, fear, happiness, sadness, surprise, and neutral).
+              The sentiment scores are then mapped to a color palette, and the resulting color is displayed on the screen.
+            </TypographyP>
+          </div>
+          
         </div>
       </div>
     </main>

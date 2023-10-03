@@ -5,12 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
+import Image from 'next/image';
 
 export default function JoinPage() {
     const [roomId, setRoomId] = useState();
     const [name, setName] = useState('');
     return (
         <div className={'h-screen flex flex-col items-center justify-center lg:flex-row'}>
+          
             <section className={'h-screen flex-1 flex items-center justify-center'}>
                 <div className={'w-full flex items-center justify-center flex-col lg:max-w-sm gap-4'}>
 

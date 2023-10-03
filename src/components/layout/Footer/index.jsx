@@ -2,7 +2,7 @@ export default function Footer() {
     return (
         <div>
             <footer
-            class="bg-pink-300 text-center text-pastel-blue lg:text-left">
+            class="bg-white text-center text-pastel-blue lg:text-left pb-8">
             <div class="mx-6 py-10 text-center md:text-left">
                 <div class="grid-1 grid g
                 ap-8 md:grid-cols-2 lg:grid-cols-4">
@@ -19,10 +19,7 @@ export default function Footer() {
                     </svg>
                     sentmientSolved
                     </h6>
-                    <img
-                    src="/Hand.png"
-                    class="h-auto max-w-full"
-                    alt="sentimentalSolved logo" />
+                   
                 </div>
                 <div class="">
                     <h6
@@ -108,7 +105,7 @@ export default function Footer() {
             <div class="bg-text-pastel-bluep-6 text-center text-black">
                 <span>© 2023 Copyright </span>
                 <a
-                class="font-semibold text-pink-300"
+                class="font-semibold text-medium-purple-500"
                 href="https://localhost:3000"
                 > sentimentSolved </a
                 >
