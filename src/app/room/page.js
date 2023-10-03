@@ -13,21 +13,41 @@ import {
   
 } from '@livekit/components-react';
 import { RoomAudioRenderer, ControlBar } from "@livekit/components-react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, createElement } from 'react';
 import { Track } from 'livekit-client';
 
 import { useSearchParams } from 'next/navigation';
+
+import * as faceapi from 'face-api.js';
 
 export default function Page() {
   // TODO: get user input for room and name
   const searchParams = useSearchParams();
 
+  const [modelLoaded, setModelLoaded] = useState(false);
 
   const room = searchParams.get('room') || "quickstart-room";
   const name = searchParams.get('name') || "quickstart-user";
   const [token, setToken] = useState("");
 
   useEffect(() => {
+    const loadModels = async ( ) => {
+      Promise.all([
+        faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
+        faceapi.nets.faceExpressionNet.loadFromUri('/models'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+      ])
+      .then(() => {
+        setModelLoaded(true);
+      }
+      )
+    }
+    loadModels();
+  })
+
+  useEffect(() => {
+    
+
     (async () => {
       try {
         const resp = await fetch(
@@ -57,7 +77,7 @@ export default function Page() {
       style={{ height: '100dvh', backgroundColor: 'var(--lk-background)' }}
     >
       {/* Your custom component with basic video conferencing functionality. */}
-      <RenderedConference />
+      <RenderedConference modelLoaded={modelLoaded} />
       {/* The RoomAudioRenderer takes care of room-wide audio for you. */}
       <RoomAudioRenderer />
       {/* Controls for the user to start/stop audio, video, and screen 
@@ -86,7 +106,9 @@ function MyVideoConference() {
   );
 } 
 
-function RenderedConference() {
+function RenderedConference({ modelLoaded }) {
+  const mainRef = useRef(null);
+
   const tracks = useTracks(
     [
       { source: Track.Source.Camera, withPlaceholder: true },
@@ -95,19 +117,46 @@ function RenderedConference() {
     { onlySubscribed: true },
   ); 
 
-  return (
-    <div className={'grid grid-cols-4 p-8'}>
-      {tracks.map((track) => {
+  useEffect(() => {
+    if (!modelLoaded) {
+      return;
+    }
+    mainRef.current.innerHTML = '';
+    tracks.map((track) => {
+      if (track.participant && track.participant.isCameraEnabled) {
+        const vidTrack = track.publication.track.attach();
+        
+        const parent = document.createElement('div');
+        parent.className = 'relative';
+        parent.appendChild(vidTrack);
+        const canvas = faceapi.createCanvas({ width: 640, height: 480 });
 
-        if (track.participant && track.participant.isCameraEnabled) {
-          const a = track.publication.videoTrack.attach();
-          
-          return (
-            <div key={track.sid} className={'text-black max-w-lg rounded-lg overflow-hidden'}>
-              <VideoTrack { ...track } />
-            </div>
-          );
-        }
+        canvas.className = 'absolute top-0 left-0 w-full h-full';
+
+        parent.appendChild(canvas);
+        mainRef.current.appendChild(parent);
+        
+
+        setInterval(async () => {
+          const context = canvas.getContext('2d');
+          context.clearRect(0, 0, canvas.width, canvas.height);
+
+          const detections = await faceapi.detectAllFaces(vidTrack).withFaceExpressions();
+          faceapi.matchDimensions(vidTrack, { width: 640, height: 480 });
+
+          const dec = faceapi.resizeResults(detections, { width: 640, height: 480 });
+
+          faceapi.draw.drawDetections(canvas, dec);
+          faceapi.draw.drawFaceExpressions(canvas, dec);
+        }, 400);
+      }
+    }
+    )
+  })
+  return (
+    <div ref={mainRef} className={'grid grid-cols-4 p-8'}>
+      {tracks.map((track) => {
+       
         return (
           <div key={track.sid} className={'text-black max-w-lg rounded-lg overflow-hidden'}>
             <VideoTrack { ...track } />
