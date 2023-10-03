@@ -17,10 +17,13 @@ export default function CreateMeetingPage() {
                     <TypographyP>
                         Harness the power of AI with our meeting services.
                     </TypographyP>
+
+                    <Link href={'/meeting/generate'} className={'w-full'}>
+                        <Button className={'w-full text-md'}>
+                            Create
+                        </Button>
+                    </Link>
                     
-                    <Button className={'w-full text-md'}>
-                        <Link href={'/meeting/generate'}>Create</Link>
-                    </Button>
 
                     <Button variant={'link'} href={'/bruh'}>
                         <Link
