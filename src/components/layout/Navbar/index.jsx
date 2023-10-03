@@ -31,7 +31,7 @@ const MainNavbarVariant = () => {
             </div>
 
             <div className={'h-full text-black text-[.93rem]'}>
-                <ul className={'flex h-full items-center gap-8'}>
+                <ul className={'flex h-full items-center'}>
                     
                     <Button
                     variant={'ghost'}
@@ -54,7 +54,7 @@ const MainNavbarVariant = () => {
                             Create meeting
                         </Link>
                     </Button>
-                    <Button>
+                    <Button className={'ml-4'}>
                         <Link
                         href={'/register'}
                         >

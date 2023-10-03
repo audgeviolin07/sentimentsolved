@@ -17,7 +17,7 @@ export default function generateMeeting(){
                         <TypographyH2>Room Code: {roomId}</TypographyH2>
                         <TypographyP>
                             Share this link with your friends to invite them to your room: <br />
-                            <Link href={`/room?room=${roomId}?&name=${name}`}>https://sentimentsolved.com/room?room={roomId}</Link>
+                            <Link className={'text-medium-purple-600'} href={`/room?room=${roomId}?&name=${name}`}><Button variant={'link'}>https://sentimentsolved.com/room?room={roomId}</Button></Link>
                         </TypographyP>
                     </div>
                     <div className={'w-full'}>

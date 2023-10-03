@@ -2,6 +2,7 @@ import Image from 'next/image'
 import './globals.css'
 import { TypographyH2, TypographyH3, TypographyH1, TypographyP } from '@/components/typography';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -30,20 +31,25 @@ export default function Home() {
 
 
           <div className={'flex items-center gap-4'}>
-            <Button>
-              <TypographyP>Get Started</TypographyP>
-            </Button>
-            <Button className={'flex items-center gap-2'}>
-              <Image
-                src={'/github.svg'}
-                alt={'GitHub'}
-                width={24}
-                height={24}
-                className={''}
-              />
-              Source
+            <Link href={'/app'}>
 
-            </Button>
+              <Button>
+                <TypographyP>Get Started</TypographyP>
+              </Button>
+            </Link>
+            <Link href={'https://github.com/audgeviolin07/sentimentsolved'}>
+              <Button className={'flex items-center gap-2'}>
+                <Image
+                  src={'/github.svg'}
+                  alt={'GitHub'}
+                  width={24}
+                  height={24}
+                  className={''}
+                />
+                Source
+
+              </Button>
+            </Link>
           </div>
           <hr className={'border-medium-purple-200'} />
           <div className={'flex flex-col gap-2'}>

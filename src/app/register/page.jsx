@@ -10,8 +10,8 @@ export default function LoginPage() {
             <section className={'h-screen flex-1 flex items-center justify-center'}>
                 <div className={'w-full flex items-center justify-center flex-col lg:max-w-sm gap-4'}>
 
-                    <TypographyP className={'text-gray-500'}>
-                        Welcome to <span className={'font-semibold text-black'}>Emotion AI</span>, a platform that helps you to understand others' emotions.
+                    <TypographyP className={'text-gray-500 text-center'}>
+                        Welcome to <span className={'font-semibold text-black'}>sentimentSolved</span>, a platform that helps you to understand others' emotions.
                     </TypographyP>
 
                     <TypographyH2>

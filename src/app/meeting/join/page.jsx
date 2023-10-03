@@ -16,11 +16,6 @@ export default function JoinPage() {
             <section className={'h-screen flex-1 flex items-center justify-center'}>
                 <div className={'w-full flex items-center justify-center flex-col lg:max-w-sm gap-4'}>
 
-                    <TypographyP>
-                        You are invited to join a meeting by <span className={'font-semibold'}>John Doe</span>
-                    </TypographyP>
-                    
-
                     <TypographyH2>
                         Join this meeting?
                     </TypographyH2>
