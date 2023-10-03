@@ -8,7 +8,7 @@ import { useState } from "react";
 import Image from 'next/image';
 
 export default function JoinPage() {
-    const [roomId, setRoomId] = useState();
+    const [roomId, setRoomId] = useState('');
     const [name, setName] = useState('');
     return (
         <div className={'h-screen flex flex-col items-center justify-center lg:flex-row'}>
@@ -25,15 +25,20 @@ export default function JoinPage() {
                         Join this meeting?
                     </TypographyH2>
                     <div className={'w-full mt-8'}>
-                    <Input placeholder={'Room Code'} type="room code" onChange ={e => setRoomId(e.target.value)} name="code" />
+                    <Input placeholder={'Room Code'} type="room code" value={roomId} onChange ={e => setRoomId(e.target.value)} name="code" />
                     </div>
                     <div className={'w-full'}>
-                        <Input placeholder={'Name'} type="name" onChange ={e => setName(e.target.value)} name="name" />
+                        <Input placeholder={'Name'} type="name" value={name} onChange ={e => setName(e.target.value)} name="name" />
                     </div>
+
+                    <Link href={`/room?room=${roomId}?&name=${name}`}
+                    className={'w-full'}
+                    >
+                        <Button className={'w-full text-md'}>
+                            Join Room
+                        </Button>
+                    </Link>
                     
-                    <Button className={'w-full text-md'}>
-                        <Link href={`/room?room=${roomId}?&name=${name}`}>Join Room</Link>
-                    </Button>
                 </div>
             </section>
 

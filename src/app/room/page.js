@@ -7,6 +7,10 @@ import {
   GridLayout,
   ParticipantTile,
   useTracks,
+  useLocalParticipant,
+  useParticipants,
+  VideoTrack,
+  
 } from '@livekit/components-react';
 import { RoomAudioRenderer, ControlBar } from "@livekit/components-react";
 import { useEffect, useState } from 'react';
@@ -50,10 +54,10 @@ export default function Page() {
       serverUrl={process.env.NEXT_PUBLIC_LIVEKIT_URL}
       // Use the default LiveKit theme for nice styles.
       data-lk-theme="default"
-      style={{ height: '100dvh' }}
+      style={{ height: '100dvh', backgroundColor: 'var(--lk-background)' }}
     >
       {/* Your custom component with basic video conferencing functionality. */}
-      <MyVideoConference />
+      <RenderedConference />
       {/* The RoomAudioRenderer takes care of room-wide audio for you. */}
       <RoomAudioRenderer />
       {/* Controls for the user to start/stop audio, video, and screen 
@@ -80,4 +84,36 @@ function MyVideoConference() {
       <ParticipantTile />
     </GridLayout>
   );
+} 
+
+function RenderedConference() {
+  const tracks = useTracks(
+    [
+      { source: Track.Source.Camera, withPlaceholder: true },
+      { source: Track.Source.ScreenShare, withPlaceholder: false },
+    ],
+    { onlySubscribed: true },
+  ); 
+
+  return (
+    <div className={'grid grid-cols-4 p-8'}>
+      {tracks.map((track) => {
+
+        if (track.participant && track.participant.isCameraEnabled) {
+          const a = track.publication.videoTrack.attach();
+          
+          return (
+            <div key={track.sid} className={'text-black max-w-lg rounded-lg overflow-hidden'}>
+              <VideoTrack { ...track } />
+            </div>
+          );
+        }
+        return (
+          <div key={track.sid} className={'text-black max-w-lg rounded-lg overflow-hidden'}>
+            <VideoTrack { ...track } />
+          </div>
+        );
+      })}
+    </div>
+  )
 }
